@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class ChatViewController: UIViewController {
 
@@ -15,11 +16,25 @@ class ChatViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        navigationItem.hidesBackButton = true
+        navigationItem.title = "wallApp"
 
     }
     
     @IBAction func sendPressed(_ sender: UIButton) {
     }
     
-
+    // signout
+    @IBAction func barButtonPressed(_ sender: UIBarButtonItem) {
+        let firebaseAuth = Auth.auth()
+        do {
+          try firebaseAuth.signOut()
+//            self.performSegue(withIdentifier: "backToLogin", sender: self)
+            navigationController?.popToRootViewController(animated: true)
+        } catch let signOutError as NSError {
+          print ("Error signing out: %@", signOutError)
+        }
+    }
+    
 }
