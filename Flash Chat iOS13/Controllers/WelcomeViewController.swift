@@ -7,14 +7,26 @@
 //
 
 import UIKit
+import CLTypingLabel
 
 class WelcomeViewController: UIViewController {
 
-    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var titleLabel: CLTypingLabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        titleLabel.textAlignment = .center
+        titleLabel.text = "WallApp"
+        
+//        let title = "WallApp"
+//        var int: Double = 0.0
+//        for c in title {
+//            int += 0.1
+//            Timer.scheduledTimer(withTimeInterval: int, repeats: false) { (timer) in
+//                self.titleLabel.text?.append(c)
+//            }
+//        }
        
     }
     
